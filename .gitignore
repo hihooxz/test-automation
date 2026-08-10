@@ -1,0 +1,16 @@
+# Build and test output directories
+target/
+build/
+.gradle/
+
+# IDE and Editor files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
