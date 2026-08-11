@@ -73,3 +73,35 @@ Feature: GoRest User / Collabera QA Test Engineer
     And match response[0].status == '#regex active|inactive'
 
     And match each response == { id: '#number', name: '#string', email: '#string', gender: '#string', status: '#regex active|inactive' }
+
+    @updateUser
+
+  Scenario: Update existing user
+    * def employeePayload = 
+    """
+    {
+     "name": "Avantika Shahaa", 
+     "status": "inactive" 
+    }
+    """
+    Given path '/public/v2/users/8574930'
+    And request employeePayload
+    When method put
+    Then status 200
+
+    * print 'API Response Status:', responseStatus
+    * print 'API Response Body:', response
+
+        * def expectedUser = 
+    """
+    {
+      "id": 8574930,
+      "name": "Avantika Shahaa",
+      "email": "shah_avantika@raynor.example",
+      "gender": "female",
+      "status": "inactive"
+    }
+    """
+
+    
+    * match response == expectedUser

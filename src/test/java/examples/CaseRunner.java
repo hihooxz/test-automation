@@ -11,9 +11,9 @@ class CaseRunner {
     @Test
     void testCreateEmployee() {
         SuiteResult result = Runner.path("classpath:examples/gorestUser.feature")
-            .tags("@createEmployee")
-            .outputHtmlReport(true)
-            .parallel(1);
+                .tags("@createEmployee")
+                .outputHtmlReport(true)
+                .parallel(1);
         assertTrue(result.isPassed());
     }
 
@@ -21,9 +21,9 @@ class CaseRunner {
     @Test
     void testGetUserById() {
         SuiteResult result = Runner.path("classpath:examples/gorestUser.feature")
-            .tags("@getUser")
-            .outputHtmlReport(true)
-            .parallel(1);
+                .tags("@getUser")
+                .outputHtmlReport(true)
+                .parallel(1);
         assertTrue(result.isPassed());
     }
 
@@ -31,9 +31,18 @@ class CaseRunner {
     @Test
     void testGetAllUsers() {
         SuiteResult result = Runner.path("classpath:examples/gorestUser.feature")
-            .tags("@getUsers")
-            .outputHtmlReport(true)
-            .parallel(1);
+                .tags("@getUsers")
+                .outputHtmlReport(true)
+                .parallel(1);
+        assertTrue(result.isPassed());
+    }
+
+    @Test
+    void testUpdatedUser() {
+        SuiteResult result = Runner.path("classpath:examples/gorestUser.feature")
+                .tags("@updateUser")
+                .outputHtmlReport(true)
+                .parallel(1);
         assertTrue(result.isPassed());
     }
 }
